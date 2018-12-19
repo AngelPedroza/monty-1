@@ -8,8 +8,9 @@
  */
 int main(int ac, char **av)
 {
-	unsigned int lineno = 1, ind;
-	char *buffer = NULL, *newline = "\n", *sp = " "; **c_lines, **optoks;
+	unsigned int lineno = 1, ind, pushn;
+	char *buffer = NULL, *newline = "\n", *sp = " "; **c_lines, **optoks,
+	*rat;
 	size_t buffer_size;
 	FILE *stream;
 
@@ -29,7 +30,27 @@ int main(int ac, char **av)
 	for (ind = 0; c_lines[ind] != NULL; ind++)
 	{
 		optoks = split_string(c_lines[ind], sp);
-		/* here match the opcode */
+		rat = optoks[0];
+		if (strcmp(rat, "push") == 0)
+		{
+			if (optoks[1] != NULL)
+				pushn = atoi(optoks[1]);
+			if ((isdigit(pushn) == 0) || (optoks[1] == NULL))
+			{
+				fprintf(stderr, "L%u: usage: push integer
+					\n", lineno);
+				exit(EXIT_FAILURE);
+			}
+			else
+				/* push onto stack w helper function */
+		}
+		/* here match the opcode that is not push */
+		if (get_op_func(rat) == NULL)
+		{
+			fprintf(stderr, "L%u: unknown operation %s\n",
+				lineno, rat);
+			exit(EXIT_FAILURE);
+		}
 		lineno++;
 	}
 	/* loop to free everything in optoks bc malloc in split_string */
