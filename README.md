@@ -8,43 +8,43 @@ The files are to be compiled this way:
 $ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 ```
 ### Implemented opcodes
-`push`
+**push**
 
 Usage: `push <int>` where `<int>` is an integer
 
 What it does: pushes an element to the stack.
 
-`pall`
+**pall**
 
 Usage: `pall`
 
 What it does: prints all the values on the stack, starting from the top of the stack.
 
-`pint`
+**pint**
 
 Usage: `pint`
 
 What it does: prints the value at the top of the stack followed by a new line.
 
-`pop`
+**pop**
 
 Usage: `pop`
 
 What it does: removes the top element of the stack.
 
-`swap`
+**swap**
 
 Usage: `swap`
 
 What it does: swaps the top two elements of the stack.
 
-`add`
+**add**
 
 Usage: `add`
 
 What it does: adds the top two elements of the stack.
 
-`nop`
+**nop**
 
 Usage: `nop`
 
