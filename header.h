@@ -39,14 +39,14 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-int (*get_op_func(char *s))(char **, unsigned int);
-int op_push(stack_t **stack, unsigned int line_number);
-int op_pall(stack_t **stack, unsigned int line_number);
-int op_pint(stack_t **stack, unsigned int line_number);
-int op_pop(stack_t **stack, unsigned int line_number);
-int op_swap(stack_t **stack, unsigned int line_number);
-int op_add(stack_t **stack, unsigned int line_number);
-int op_nop(stack_t **stack, unsigned int line_number);
+void (*get_op_func(char *s))(char **, unsigned int);
+void op_push(stack_t **stack, unsigned int line_number);
+void op_pall(stack_t **stack, unsigned int line_number);
+void op_pint(stack_t **stack, unsigned int line_number);
+void op_pop(stack_t **stack, unsigned int line_number);
+void op_swap(stack_t **stack, unsigned int line_number);
+void op_add(stack_t **stack, unsigned int line_number);
+void op_nop(stack_t **stack, unsigned int line_number);
 
 
 
