@@ -17,9 +17,12 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 	{"nop", op_nop},
 	{NULL, NULL}
 	};
-	int i = 0;
+	int i;
 
-	while ((i < 8) && (*s != *(ops[i].opcode)))
-		i++
-	return (ops[i].f);
+	for (i = 0; i < 8; i++)
+	{
+		if (strcmp(s, ops[i].opcode) == 0)
+			return (ops[i].f);
+	}
+	return (NULL);
 }
