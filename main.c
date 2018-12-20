@@ -8,9 +8,8 @@
  */
 int main(int ac, char **av)
 {
-	unsigned int lineno = 1, ind, pushn;
-	char *buffer = NULL, *newline = "\n", *sp = " "; **c_lines, **optoks,
-	*rat;
+	unsigned int lineno = 1, pushn;
+	char *buffer = NULL, *sp = " "; **optoks, *rat;
 	size_t buffer_size;
 	FILE *stream;
 
@@ -25,11 +24,9 @@ int main(int ac, char **av)
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	getline(&buffer, &buffer_size, stream);
-	c_lines = split_string(stream, newline);
-	for (ind = 0; c_lines[ind] != NULL; ind++)
+	while (getline(&buffer, &buffer_size, stream) != -1)
 	{
-		optoks = split_string(c_lines[ind], sp);
+		optoks = split_string(stream, sp);
 		rat = optoks[0];
 		if (strcmp(rat, "push") == 0)
 		{
