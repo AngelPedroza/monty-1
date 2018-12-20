@@ -5,7 +5,7 @@
  * @s: opcode to be implemented
  * Return: pointer to function
  */
-void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
+void get_op_func(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {
 	{"pall", op_pall},
@@ -18,11 +18,11 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 	};
 	int i;
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 6; i++)
 	{
-		if (strcmp(s, ops[i].opcode) == 0)
-			return (ops[i].f);
+		if (strcmp(name.rat, ops[i].opcode) == 0)
+			ops[i].f(stack, line_number);
 	}
-	fprintf(stderr, "L%u: unknown operation %s\n", line_number, s);
+	fprintf(stderr, "L%u: unknown operation %s\n", line_number, name.rat);
 		exit(EXIT_FAILURE);
 }

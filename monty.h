@@ -40,7 +40,19 @@ typedef struct instruction_s
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-void (*get_op_func(char *s))(stack_t **, unsigned int);
+
+/**
+ * ADD COMMENTS
+ */
+typedef struct mystruct_s
+{
+	char *rat;
+} mystruct;
+
+mystruct name;
+
+
+void get_op_func(stack_t **, unsigned int);
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
@@ -51,5 +63,7 @@ void op_nop(stack_t **stack, unsigned int line_number);
 
 int isint(char *s);
 char **split_string(char *line, char *delim);
+
+
 
 #endif
