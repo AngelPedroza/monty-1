@@ -19,7 +19,7 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 	};
 	int i;
 
-	for (i = 0; i < 8; i++)
+	for (i = 0; i < 7; i++)
 	{
 		if (strcmp(s, ops[i].opcode) == 0)
 			return (ops[i].f);

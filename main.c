@@ -8,10 +8,13 @@
  */
 int main(int ac, char **av)
 {
-	unsigned int lineno = 1, pushn;
-	char *buffer = NULL, *sp = " "; **optoks, *rat;
+	unsigned int lineno = 0;
+	char *buffer = NULL, *sp = " \n", **optoks, *rat;
 	size_t buffer_size;
 	FILE *stream;
+	stack_t **head;
+
+	pushn = 0;
 
 	if (ac != 2)
 	{
@@ -26,33 +29,31 @@ int main(int ac, char **av)
 	}
 	while (getline(&buffer, &buffer_size, stream) != -1)
 	{
-		optoks = split_string(stream, sp);
+		lineno++;
+		optoks = split_string(buffer, sp);
 		rat = optoks[0];
-		if (strcmp(rat, "push") == 0)
+		if (sizeof(optoks) >= 2)	
+			pushn = atoi(optoks[1]);
+
+
+	/*	if ((isdigit(pushn) == 0) || (optoks[1] == NULL))
 		{
-			if (optoks[1] != NULL)
-				pushn = atoi(optoks[1]);
-			if ((isdigit(pushn) == 0) || (optoks[1] == NULL))
-			{
-				fprintf(stderr, "L%u: usage: push integer
-					\n", lineno);
-				exit(EXIT_FAILURE);
-			}
-			else
-				/* push onto stack w helper function */
-		}
-		/* here match the opcode that is not push */
-		if (get_op_func(rat) == NULL)
+			fprintf(stderr, "L%u: usage: push integer
+				\n", lineno);
+			exit(EXIT_FAILURE);
+		}	*/
+		if (get_op_func(rat)(head, lineno) == NULL)
 		{
 			fprintf(stderr, "L%u: unknown operation %s\n",
 				lineno, rat);
 			exit(EXIT_FAILURE);
-		}
-		lineno++;
+		}	
 	}
-	/* loop to free everything in optoks bc malloc in split_string */
-	/* loop to free everything in c_lines bc malloc in split_string */
-	free(buffer)
+	
+	if (optoks)
+		free(optoks);
+	if (buffer)
+		free(buffer);
 	fclose(stream);
 	return (0);
 }
