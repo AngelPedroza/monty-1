@@ -11,10 +11,11 @@ int isint(char *s)
 
 	if (s[0] == '-')
 		i++;
-	for (; s[i] != '\0'; i++)
+	while (s[i] != '\0')
 	{
-		if ((s[i] < '0') || (s[i] > '9'))
+		if (isdigit(s[i]) == 0)
 			return (1);
+		i++;
 	}
 	return (0);
 }
