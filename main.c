@@ -49,7 +49,6 @@ int main(int ac, char **av)
 			exit(EXIT_FAILURE);
 		}	
 	}
-	
 	if (optoks)
 		free(optoks);
 	if (buffer)
