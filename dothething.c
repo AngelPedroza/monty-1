@@ -7,6 +7,7 @@
  */
 void op_push(stack_t **stack, unsigned int line_number)
 {
+	(void)line_number;
 	stack_t *new, *temp;
 
 	new = malloc(sizeof(dlistint_t));
