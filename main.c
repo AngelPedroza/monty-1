@@ -9,12 +9,11 @@
 int main(int ac, char **av)
 {
 	unsigned int lineno = 0;
-	char *buffer = NULL, *sp = " \n", **optoks, *rat;
+	char *buffer = NULL, *sp = " ", **optoks, *rat;
 	size_t buffer_size;
 	FILE *stream;
 	stack_t **head;
-
-	pushn = 0;
+	int pushn;
 
 	if (ac != 2)
 	{
@@ -32,16 +31,21 @@ int main(int ac, char **av)
 		lineno++;
 		optoks = split_string(buffer, sp);
 		rat = optoks[0];
-		if (sizeof(optoks) >= 2)	
-			pushn = atoi(optoks[1]);
-
-
-	/*	if ((isdigit(pushn) == 0) || (optoks[1] == NULL))
+		if (strcmp(rat, "\n") == 0)
+			continue;
+		if (strcmp(rat, "push") == 0)
 		{
-			fprintf(stderr, "L%u: usage: push integer
-				\n", lineno);
-			exit(EXIT_FAILURE);
-		}	*/
+			if ((sizeof(optoks) >= 2) && (isint(optoks[1]) == 0))
+				pushn = atoi(optoks[1]);
+			else
+			{
+				fprintf(stderr, "L%u: usage: push integer
+					\n", lineno);
+				exit(EXIT_FAILURE);
+			}
+			op_push(head, lineno);
+			(*head)->n = pushn;
+		}
 		if (get_op_func(rat)(head, lineno) == NULL)
 		{
 			fprintf(stderr, "L%u: unknown operation %s\n",
@@ -49,9 +53,9 @@ int main(int ac, char **av)
 			exit(EXIT_FAILURE);
 		}	
 	}
-	if (optoks)
+	if (optoks != NULL)
 		free(optoks);
-	if (buffer)
+	if (buffer != NULL)
 		free(buffer);
 	fclose(stream);
 	return (0);
