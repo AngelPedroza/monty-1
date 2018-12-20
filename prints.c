@@ -7,8 +7,9 @@
  */
 void op_pall(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current = *stack;
+
 	(void)line_number;
-	stack *current = *stack;
 
 	for (; current != NULL; current = current->next)
 		printf("%i\n", current->n);

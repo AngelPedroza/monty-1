@@ -12,7 +12,7 @@ int main(int ac, char **av)
 	char *buffer = NULL, *sp = " ", **optoks, *rat;
 	size_t buffer_size;
 	FILE *stream;
-	stack_t **head;
+	stack_t *head = NULL;
 	int pushn;
 
 	if (ac != 2)
@@ -39,19 +39,14 @@ int main(int ac, char **av)
 				pushn = atoi(optoks[1]);
 			else
 			{
-				fprintf(stderr, "L%u: usage: push integer
-					\n", lineno);
+				fprintf(stderr, "L%u: usage: push integer\n",
+					lineno);
 				exit(EXIT_FAILURE);
 			}
-			op_push(head, lineno);
-			(*head)->n = pushn;
+			op_push(&head, lineno);
+			head->n = pushn;
 		}
-		if (get_op_func(rat)(head, lineno) == NULL)
-		{
-			fprintf(stderr, "L%u: unknown operation %s\n",
-				lineno, rat);
-			exit(EXIT_FAILURE);
-		}	
+		get_op_func(rat)(&head, lineno);
 	}
 	if (optoks != NULL)
 		free(optoks);

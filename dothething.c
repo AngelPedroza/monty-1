@@ -7,10 +7,11 @@
  */
 void op_push(stack_t **stack, unsigned int line_number)
 {
-	(void)line_number;
 	stack_t *new, *temp;
 
-	new = malloc(sizeof(dlistint_t));
+	(void)line_number;
+
+	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
@@ -39,8 +40,8 @@ void op_pop(stack_t **stack, unsigned int line_number)
 
 	if ((current == NULL) || (stack == NULL))
 	{
-		fprintf(stderr, "L%u: can't pop an empty stack
-			\n", line_number);
+		fprintf(stderr, "L%u: can't pop an empty stack\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 	*stack = current->next;
@@ -57,19 +58,18 @@ void op_pop(stack_t **stack, unsigned int line_number)
 void op_swap(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node1 = *stack, *node2;
-	int total;
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short
-			\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short
-			\n", line_number);
+		fprintf(stderr, "L%u: can't swap, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 	if (node2->next == NULL)
@@ -103,15 +103,15 @@ void op_add(stack_t **stack, unsigned int line_number)
 
 	if ((stack == NULL) || (node1 == NULL))
 	{
-		fprintf(stderr, "L%u: can't add, stack too short
-			\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
 	if (node2 == NULL)
 	{
-		fprintf(stderr, "L%u: can't add, stack too short
-			\n", line_number);
+		fprintf(stderr, "L%u: can't add, stack too short\n",
+			line_number);
 		exit(EXIT_FAILURE);
 	}
 	node2->n += node1->n;

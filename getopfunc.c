@@ -23,5 +23,6 @@ void (*get_op_func(char *s))(stack_t **stack, unsigned int line_number)
 		if (strcmp(s, ops[i].opcode) == 0)
 			return (ops[i].f);
 	}
-	return (NULL);
+	fprintf(stderr, "L%u: unknown operation %s\n", line_number, s);
+		exit(EXIT_FAILURE);
 }
