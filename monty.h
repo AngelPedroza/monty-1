@@ -42,7 +42,7 @@ typedef struct instruction_s
 
 
 /**
- * mystruct_s - storing a variable here
+ * struct mystruct_s - storing a variable here
  * @rat: opcode stored here
  *
  * Description: this is where I am storing a variable
