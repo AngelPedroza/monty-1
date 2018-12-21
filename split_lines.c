@@ -3,6 +3,7 @@
 /**
  * split_string - splits a string
  * @line: string to be split
+ * @delim: delimiter
  * Return: pointer to array of arrays
  */
 char **split_string(char *line, char *delim)

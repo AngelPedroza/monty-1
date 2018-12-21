@@ -21,9 +21,9 @@
  */
 typedef struct stack_s
 {
-        int n;
-        struct stack_s *prev;
-        struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } stack_t;
 
 /**
@@ -36,13 +36,17 @@ typedef struct stack_s
  */
 typedef struct instruction_s
 {
-        char *opcode;
-        void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
 
 /**
- * ADD COMMENTS
+ * mystruct_s - storing a variable here
+ * @rat: opcode stored here
+ *
+ * Description: this is where I am storing a variable
+ * so that I can use it in multiple functions
  */
 typedef struct mystruct_s
 {
@@ -50,7 +54,6 @@ typedef struct mystruct_s
 } mystruct;
 
 mystruct name;
-
 
 void get_op_func(stack_t **, unsigned int);
 void op_push(stack_t **stack, unsigned int line_number);
@@ -63,7 +66,5 @@ void op_nop(stack_t **stack, unsigned int line_number);
 
 int isint(char *s);
 char **split_string(char *line, char *delim);
-
-
 
 #endif

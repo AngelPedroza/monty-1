@@ -2,8 +2,8 @@
 
 /**
  * get_op_func - selects correct function to implement opcode
- * @s: opcode to be implemented
- * Return: pointer to function
+ * @stack: pointer to stack
+ * @line_number: line number where opcode appears
  */
 void get_op_func(stack_t **stack, unsigned int line_number)
 {
