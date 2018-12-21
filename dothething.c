@@ -5,11 +5,9 @@
  * @stack: a doubly linked list
  * @line_number: line where opcode appears
  */
-void op_push(stack_t **stack, unsigned int line_number)
+void op_push(stack_t **stack)
 {
 	stack_t *new, *temp;
-
-	(void)line_number;
 
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
@@ -17,6 +15,7 @@ void op_push(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
+	new->n = name.pushn;
 	new->prev = NULL;
 	temp = *stack;
 	if (temp == NULL)

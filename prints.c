@@ -22,6 +22,8 @@ void op_pall(stack_t **stack, unsigned int line_number)
  */
 void op_pint(stack_t **stack, unsigned int line_number)
 {
+	stack_t *current = *stack;
+
 	(void)line_number;
 
 	if ((*stack == NULL) || (stack == NULL))
@@ -29,7 +31,7 @@ void op_pint(stack_t **stack, unsigned int line_number)
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%i\n", (*stack)->n);
+	printf("%i\n", current->n);
 }
 
 /**

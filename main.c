@@ -34,16 +34,14 @@ int main(int ac, char **av)
 			continue;
 		else if (strcmp(name.rat, "push") == 0)
 		{
-			if ((optoks[1] != NULL) && (isint(optoks[1]) == 0))
-				pushn = atoi(optoks[1]);
-			else if (optoks[1] == NULL || isint(optoks[1]) != 0)
+			if (optoks[1] == NULL || isint(optoks[1]) != 0)
 			{
 				fprintf(stderr, "L%u: usage: push integer\n",
 					lineno);
 				exit(EXIT_FAILURE);
 			}
-			op_push(&head, lineno);
-			head->n = pushn;
+			name.pushn = atoi(optoks[1]);
+			op_push(&head);
 		}
 		else
 			get_op_func(&head, lineno);
