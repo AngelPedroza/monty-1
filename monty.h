@@ -44,13 +44,14 @@ typedef struct instruction_s
 /**
  * struct mystruct_s - storing a variable here
  * @rat: opcode stored here
- *
+ * @pushn: value to be pushed onto stack
  * Description: this is where I am storing a variable
  * so that I can use it in multiple functions
  */
 typedef struct mystruct_s
 {
 	char *rat;
+	int pushn;
 } mystruct;
 
 mystruct name;

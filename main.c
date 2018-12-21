@@ -13,7 +13,6 @@ int main(int ac, char **av)
 	size_t buffer_size;
 	FILE *stream;
 	stack_t *head = NULL;
-	int pushn;
 
 	if (ac != 2)
 	{
@@ -31,7 +30,7 @@ int main(int ac, char **av)
 		lineno++;
 		optoks = split_string(buffer, sp);
 		name.rat = optoks[0];
-		if (strcmp(name.rat, "\n") == 0)
+		if (strcmp(name.rat, "") == 0)
 			continue;
 		else if (strcmp(name.rat, "push") == 0)
 		{
