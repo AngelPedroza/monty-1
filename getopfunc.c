@@ -18,11 +18,16 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 	};
 	int i;
 
-	for (i = 0; i < 6; i++)
+	for (i = 0; i < 7; i++)
 	{
 		if (strcmp(name.rat, ops[i].opcode) == 0)
 			ops[i].f(stack, line_number);
+			return;
 	}
-	fprintf(stderr, "L%u: unknown operation %s\n", line_number, name.rat);
+	if (i > 6)
+	{
+		fprintf(stderr, "L%u: unknown operation %s\n",
+			line_number, name.rat);
 		exit(EXIT_FAILURE);
+	}
 }

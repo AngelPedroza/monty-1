@@ -33,7 +33,7 @@ int main(int ac, char **av)
 		name.rat = optoks[0];
 		if (strcmp(name.rat, "\n") == 0)
 			continue;
-		if (strcmp(name.rat, "push") == 0)
+		else if (strcmp(name.rat, "push") == 0)
 		{
 			if ((optoks[1] != NULL) && (isint(optoks[1]) == 0))
 				pushn = atoi(optoks[1]);
