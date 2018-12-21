@@ -3,7 +3,6 @@
 /**
  * op_push - adds a value to the top of a stack
  * @stack: a doubly linked list
- * @line_number: line where opcode appears
  */
 void op_push(stack_t **stack)
 {
@@ -43,10 +42,14 @@ void op_pop(stack_t **stack, unsigned int line_number)
 			line_number);
 		exit(EXIT_FAILURE);
 	}
-	*stack = current->next;
 	if (current->next != NULL)
-		current->next->prev = NULL;
-	free(current);
+	{
+		*stack = (*stack)->next;
+		(*stack)->prev = NULL;
+		free(current);
+	}
+	else
+		free(current);
 }
 
 /**

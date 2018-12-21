@@ -50,14 +50,11 @@ int main(int ac, char **av)
 		free(optoks);
 	if (buffer != NULL)
 		free(buffer);
-	if (head != NULL)
+	while (head != NULL)
 	{
-		while (head != NULL)
-		{
-			temp = head;
-			head = head->next;
-			free(temp);
-		}
+		temp = head;
+		head = head->next;
+		free(temp);
 	}
 	fclose(stream);
 	return (0);

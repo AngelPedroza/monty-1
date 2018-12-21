@@ -21,8 +21,10 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 	for (i = 0; i < 7; i++)
 	{
 		if (strcmp(name.rat, ops[i].opcode) == 0)
+		{
 			ops[i].f(stack, line_number);
 			return;
+		}
 	}
 	if (i > 6)
 	{

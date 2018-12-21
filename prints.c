@@ -24,14 +24,13 @@ void op_pint(stack_t **stack, unsigned int line_number)
 {
 	stack_t *current = *stack;
 
-	(void)line_number;
-
 	if ((*stack == NULL) || (stack == NULL))
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
-	printf("%i\n", current->n);
+	else
+		printf("%i\n", current->n);
 }
 
 /**
@@ -43,5 +42,4 @@ void op_nop(stack_t **stack, unsigned int line_number)
 {
 	(void)stack;
 	(void)line_number;
-	return;
 }
