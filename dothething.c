@@ -44,7 +44,8 @@ void op_pop(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	*stack = current->next;
-	current->next->prev = NULL;
+	if (current->next != NULL)
+		current->next->prev = NULL;
 	free(current);
 }
 
