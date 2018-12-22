@@ -43,7 +43,7 @@ typedef struct instruction_s
 
 /**
  * struct mystruct_s - storing a variable here
- * @rat: lines of opcode stored here
+ * @optoks: lines of opcode stored here
  * Description: this is where I am storing a variable
  * so that I can use it in multiple functions
  */

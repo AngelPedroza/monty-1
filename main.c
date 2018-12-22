@@ -28,14 +28,7 @@ int main(int ac, char **av)
 	while (getline(&buffer, &buffer_size, stream) != -1)
 	{
 		lineno++;
-
-
-
-
 		var.optoks = split_string(buffer, sp);
-
-
-
 		if (strcmp(var.optoks[0], "") == 0)
 			continue;
 		else
