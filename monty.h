@@ -43,21 +43,19 @@ typedef struct instruction_s
 
 /**
  * struct mystruct_s - storing a variable here
- * @rat: opcode stored here
- * @pushn: value to be pushed onto stack
+ * @rat: lines of opcode stored here
  * Description: this is where I am storing a variable
  * so that I can use it in multiple functions
  */
 typedef struct mystruct_s
 {
-	char *rat;
-	int pushn;
+	char **optoks;
 } mystruct;
 
-mystruct name;
+mystruct var;
 
 void get_op_func(stack_t **, unsigned int);
-void op_push(stack_t **stack);
+void op_push(stack_t **stack, unsigned int line_number);
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
 void op_pop(stack_t **stack, unsigned int line_number);

@@ -9,7 +9,7 @@
 int main(int ac, char **av)
 {
 	unsigned int lineno = 0;
-	char *buffer = NULL, *sp = " \n", **optoks;
+	char *buffer = NULL, *sp = " \n";
 	size_t buffer_size;
 	FILE *stream;
 	stack_t *head = NULL, *temp;
@@ -28,26 +28,21 @@ int main(int ac, char **av)
 	while (getline(&buffer, &buffer_size, stream) != -1)
 	{
 		lineno++;
-		optoks = split_string(buffer, sp);
-		name.rat = optoks[0];
-		if (strcmp(name.rat, "") == 0)
+
+
+
+
+		var.optoks = split_string(buffer, sp);
+
+
+
+		if (strcmp(var.optoks[0], "") == 0)
 			continue;
-		else if (strcmp(name.rat, "push") == 0)
-		{
-			if (optoks[1] == NULL || isint(optoks[1]) != 0)
-			{
-				fprintf(stderr, "L%u: usage: push integer\n",
-					lineno);
-				exit(EXIT_FAILURE);
-			}
-			name.pushn = atoi(optoks[1]);
-			op_push(&head);
-		}
 		else
 			get_op_func(&head, lineno);
 	}
-	if (optoks != NULL)
-		free(optoks);
+	if (var.optoks != NULL)
+		free(var.optoks);
 	if (buffer != NULL)
 		free(buffer);
 	while (head != NULL)

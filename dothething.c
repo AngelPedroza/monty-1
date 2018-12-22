@@ -3,18 +3,24 @@
 /**
  * op_push - adds a value to the top of a stack
  * @stack: a doubly linked list
+ * @line_number: line where opcode appears
  */
-void op_push(stack_t **stack)
+void op_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new, *temp;
 
+	if (var.optoks[1] == NULL || isint(var.optoks[1]) != 0)
+	{
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
+	}
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
 		exit(EXIT_FAILURE);
 	}
-	new->n = name.pushn;
+	new->n = atoi(var.optoks[1]);
 	new->prev = NULL;
 	temp = *stack;
 	if (temp == NULL)
@@ -42,14 +48,10 @@ void op_pop(stack_t **stack, unsigned int line_number)
 			line_number);
 		exit(EXIT_FAILURE);
 	}
+	*stack = current->next;
 	if (current->next != NULL)
-	{
-		*stack = (*stack)->next;
-		(*stack)->prev = NULL;
-		free(current);
-	}
-	else
-		free(current);
+		current->next->prev = NULL;
+	free(current);
 }
 
 /**

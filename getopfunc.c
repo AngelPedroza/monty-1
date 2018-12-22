@@ -8,6 +8,7 @@
 void get_op_func(stack_t **stack, unsigned int line_number)
 {
 	instruction_t ops[] = {
+	{"push", op_push},
 	{"pall", op_pall},
 	{"pint", op_pint},
 	{"pop", op_pop},
@@ -20,16 +21,16 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 
 	for (i = 0; i < 7; i++)
 	{
-		if (strcmp(name.rat, ops[i].opcode) == 0)
+		if (strcmp(var.optoks[0], ops[i].opcode) == 0)
 		{
 			ops[i].f(stack, line_number);
 			return;
 		}
 	}
-	if (i > 6)
+	if (i == 7)
 	{
 		fprintf(stderr, "L%u: unknown operation %s\n",
-			line_number, name.rat);
+			line_number, var.optoks[0]);
 		exit(EXIT_FAILURE);
 	}
 }
