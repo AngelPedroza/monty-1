@@ -31,7 +31,7 @@ int main(int ac, char **av)
 		var.optoks = split_string(buffer, sp);
 		if (var.optoks[0] != NULL)
 		{
-			if (strcmp(var.optoks[0], "#") == 0)
+			if (var.optoks[0][0] == '#')
 				continue;
 			else
 				get_op_func(&head, lineno);
