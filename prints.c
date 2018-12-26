@@ -85,7 +85,7 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 		if ((current->n > 32) && (current->n < 127))
 			printf("%c", current->n);
 		else
-			return;
+			break;
 	}
 	printf("\n");
 }
