@@ -30,7 +30,12 @@ int main(int ac, char **av)
 		lineno++;
 		var.optoks = split_string(buffer, sp);
 		if (var.optoks[0] != NULL)
-			get_op_func(&head, lineno);
+		{
+			if (strcmp(var.optoks[0], "#") == 0)
+				continue;
+			else
+				get_op_func(&head, lineno);
+		}
 		else
 			continue;
 	}
