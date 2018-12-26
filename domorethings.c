@@ -15,6 +15,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 			line_number);
 		exit(EXIT_FAILURE);
 	}
+	node2 = node1->next;
 	if (node2 == NULL)
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n",
