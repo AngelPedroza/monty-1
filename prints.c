@@ -43,3 +43,28 @@ void op_nop(stack_t **stack, unsigned int line_number)
 	(void)stack;
 	(void)line_number;
 }
+
+/**
+ * op_pchar - prints the character at the top of the stack
+ * @stack: pointer to the stack
+ * @line_number: line where opcode appears
+ */
+void op_pchar(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	if ((stack == NULL) || (current == NULL))
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+	if ((current->n > 32) && (current->n < 127))
+		printf("%c\n", current->n);
+	else
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n",
+			line_number);
+		exit(EXIT_FAILURE);
+	}
+}
