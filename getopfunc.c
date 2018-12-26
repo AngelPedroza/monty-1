@@ -15,11 +15,12 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 	{"swap", op_swap},
 	{"add", op_add},
 	{"nop", op_nop},
+	{"sub", op_sub},
 	{NULL, NULL}
 	};
 	int i;
 
-	for (i = 0; i < 7; i++)
+	for (i = 0; i < 8; i++)
 	{
 		if (strcmp(var.optoks[0], ops[i].opcode) == 0)
 		{
@@ -27,7 +28,7 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 			return;
 		}
 	}
-	if (i == 7)
+	if (i == 8)
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, var.optoks[0]);
