@@ -68,3 +68,24 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 }
+
+/**
+ * op-pstr - prints the string starting at the top of the stack
+ * @stack: pointer to the stack
+ * @line_number: line where opcode appears
+ */
+void op_pstr(stack_t **stack, unsigned int line_number)
+{
+	stack_t *current = *stack;
+
+	(void)line_number;
+
+	for (; current != NULL; current = current->next)
+	{
+		if ((current->n > 32) && (current->n < 127))
+			printf("%c", current->n);
+		else
+			return;
+	}
+	printf("\n");
+}

@@ -80,3 +80,9 @@ Usage: `pchar`
 
 What it does: prints the character at the top of the stack if it is a printable character.
 
+**pstr**
+
+Usage: `pstr`
+
+What it does: prints the string starting at the top of the stack.
+
