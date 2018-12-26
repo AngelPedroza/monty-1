@@ -80,12 +80,17 @@ void op_pstr(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 
-	for (; current != NULL; current = current->next)
+	if (current != NULL)
 	{
-		if ((current->n > 32) && (current->n < 127))
-			printf("%c", current->n);
-		else
-			break;
+		if ((current->n < 32) || (current->n > 127))
+			return;
+		for (; current != NULL; current = current->next)
+		{
+			if ((current->n > 32) && (current->n < 127))
+				printf("%c", current->n);
+			else
+				break;
+		}
 	}
 	printf("\n");
 }
