@@ -29,7 +29,7 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 	}
 	if (i == 7)
 	{
-		fprintf(stderr, "L%u: unknown operation %s\n",
+		fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, var.optoks[0]);
 		exit(EXIT_FAILURE);
 	}
