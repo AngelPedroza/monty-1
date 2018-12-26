@@ -42,10 +42,34 @@ What it does: swaps the top two elements of the stack.
 
 Usage: `add`
 
-What it does: adds the top two elements of the stack.
+What it does: adds the top two elements of the stack. The answer is stored in the second top element of the stack and the top element is removed so that the top element contains the result and the stack is one element shorter.
 
 **nop**
 
 Usage: `nop`
 
 What it does: nothing.
+
+**sub**
+
+Usage: `sub`
+
+What it does: subtracts the top element of the stack from the second element of the stack. The answer is stored in the second top element of the stack and the top element is removed so that the top element contains the result and the stack is one element shorter.
+
+**div**
+
+Usage: `div`
+
+What it does: divides the second top element of the stack by the first element of the stack. The answer is stored in the second top element of the stack and the top element is removed so that the top element contains the result and the stack is one element shorter.
+
+**mul**
+
+Usage: `mul`
+
+What it does: multiplies the top two elements of the stack. The answer is stored in the second top element of the stack and the top element is removed so that the top element contains the result and the stack is one element shorter.
+
+**mod**
+
+Usage: `mod`
+
+What it does: computes the remainder of the division of the second top element of the stack by the top element of the stack. The answer is stored in the second top element of the stack and the top element is removed so that the top element contains the result and the stack is one element shorter.
