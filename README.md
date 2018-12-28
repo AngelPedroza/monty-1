@@ -86,3 +86,15 @@ Usage: `pstr`
 
 What it does: prints the string starting at the top of the stack.
 
+**rotl**
+
+Usage: `rotl`
+
+What it does: rotates the stack to the left.
+
+**rotr**
+
+Usage: `rotr`
+
+What it does: rotates the stack to the right.
+
