@@ -11,6 +11,8 @@ void op_rotl(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 
+	if (current == NULL)
+		return;
 	if (current->next != NULL)
 	{
 		tail = current;
@@ -35,6 +37,8 @@ void op_rotr(stack_t **stack, unsigned int line_number)
 
 	(void)line_number;
 
+	if (current == NULL)
+		return;
 	if (current->next != NULL)
 	{
 		while (current->next != NULL)
