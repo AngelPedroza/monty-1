@@ -32,15 +32,20 @@ int main(int ac, char **av)
 		if (var.optoks[0] != NULL)
 		{
 			if (var.optoks[0][0] == '#')
+			{
+				free(var.optoks);
 				continue;
+			}
 			else
 				get_op_func(&head, lineno);
+			free(var.optoks);
 		}
 		else
+		{
+			free(var.optoks);
 			continue;
+		}
 	}
-	if (var.optoks != NULL)
-		free(var.optoks);
 	if (buffer != NULL)
 		free(buffer);
 	while (head != NULL)
