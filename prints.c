@@ -70,7 +70,7 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 }
 
 /**
- * op-pstr - prints the string starting at the top of the stack
+ * op_pstr - prints the string starting at the top of the stack
  * @stack: pointer to the stack
  * @line_number: line where opcode appears
  */
