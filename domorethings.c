@@ -80,7 +80,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 	}
 	if (node1->n == 0)
 	{
-		fprintf(stderr, "L%u: division by zero\n",line_number);
+		fprintf(stderr, "L%u: division by zero\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	node2->n /= node1->n;
