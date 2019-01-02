@@ -17,14 +17,12 @@ int main(int ac, char **av)
 	if (ac != 2)
 	{
 		write(STDERR_FILENO, "USAGE: monty file\n", 18);
-		exit(EXIT_FAILURE);
-	}
+		exit(EXIT_FAILURE); }
 	stream = fopen(av[1], "r");
 	if (stream == NULL)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
-		exit(EXIT_FAILURE);
-	}
+		exit(EXIT_FAILURE); }
 	while (getline(&buffer, &buffer_size, stream) != -1)
 	{
 		lineno++;
@@ -34,26 +32,19 @@ int main(int ac, char **av)
 			if (var.optoks[0][0] == '#')
 			{
 				free(var.optoks);
-				continue;
-			}
+				continue; }
 			else
 				get_op_func(&head, lineno);
-			free(var.optoks);
-		}
+			free(var.optoks); }
 		else
 		{
 			free(var.optoks);
-			continue;
-		}
-	}
-	if (buffer != NULL)
-		free(buffer);
+			continue; } }
+	free(buffer);
 	while (head != NULL)
 	{
 		temp = head;
 		head = head->next;
-		free(temp);
-	}
+		free(temp); }
 	fclose(stream);
-	return (0);
-}
+	return (0); }
