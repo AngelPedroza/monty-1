@@ -1,6 +1,6 @@
 # Stacks, Queues - LIFO, FIFO
 ### What is this?
-The goal of this project was to create an interpreter for Monty bytecodes files.
+A project for [Holberton School](https://www.holbertonschool.com/), this is an interpreter for Monty bytecodes files.
 ### Why?
 This project reviewed the concepts of file input/output, linked lists, and stack.
 ### Compilation
