@@ -61,20 +61,22 @@ void get_op_func(stack_t **, unsigned int);
 /* functions that print value(s) from stack */
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
+void op_pchar(stack_t **stack, unsigned int line_number);
+void op_pstr(stack_t **stack, unsigned int line_number);
 /* functions that manipulate the stack */
 void op_push(stack_t **stack, unsigned int line_number);
 void op_pop(stack_t **stack, unsigned int line_number);
 void op_swap(stack_t **stack, unsigned int line_number);
+void op_rotl(stack_t **stack, unsigned int line_number);
+void op_rotr(stack_t **stack, unsigned int line_number);
+/* functions that do math on values in the stack and pops first element */
 void op_add(stack_t **stack, unsigned int line_number);
-void op_nop(stack_t **stack, unsigned int line_number);
 void op_sub(stack_t **stack, unsigned int line_number);
 void op_div(stack_t **stack, unsigned int line_number);
 void op_mul(stack_t **stack, unsigned int line_number);
 void op_mod(stack_t **stack, unsigned int line_number);
-void op_pchar(stack_t **stack, unsigned int line_number);
-void op_pstr(stack_t **stack, unsigned int line_number);
-void op_rotl(stack_t **stack, unsigned int line_number);
-void op_rotr(stack_t **stack, unsigned int line_number);
+/* function that doesn't do anything to stack */
+void op_nop(stack_t **stack, unsigned int line_number);
 /* other helper functions */
 int isint(char *s);
 char **split_string(char *line, char *delim);
