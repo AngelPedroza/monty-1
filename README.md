@@ -1,7 +1,7 @@
 # Stacks, Queues - LIFO, FIFO
 
 ### What is this?
-A project for [Holberton School](https://www.holbertonschool.com/), this is an interpreter for Monty bytecodes files.
+A project for [Holberton School](https://www.holbertonschool.com/), this is an interpreter for Monty bytecodes files. [Monty](http://montyscoconut.github.io/) is a scripting language that is first compiled into Monty byte codes. It relies on a unique stack with specific instructions to manipulate it. Monty byte codes usually have the `.m` extension.
 
 ### Why?
 This project reviewed the concepts of file input/output, linked lists, and stack.
@@ -121,3 +121,7 @@ A few Monty bytecode files are supplied in the `byecodes` directory. For support
 ### Challenges
 - breaking down the project into smaller manageable pieces, and then breaking them into even smaller pieces so that I could have functions that each only did one thing
 - trying to make main function have fewer lines
+- memory leaks
+
+### Features that I did not implement
+- `stack` and `queue` opcodes that would set the format of the data to a stack (LIFO) or queue (FIFO).
