@@ -3,6 +3,14 @@
 A project for [Holberton School](https://www.holbertonschool.com/), this is an interpreter for Monty bytecodes files.
 ### Why?
 This project reviewed the concepts of file input/output, linked lists, and stack.
+### Requirements of project
+- Ubuntu 14.04 LTS
+- all `.c` files pass [`Betty`](https://github.com/holbertonschool/Betty) style: [betty-style.pl](https://github.com/holbertonschool/Betty/blob/master/betty-style.pl) and [betty-doc.pl](https://github.com/holbertonschool/Betty/blob/master/betty-doc.pl)
+- maximum of one global variable
+- no more than 5 functions per file
+- prototypes of all functions are included in header file called `monty.h`
+- all header files are include guarded
+- allowed to use standard library
 ### Compilation
 The files are to be compiled this way:
 ```
@@ -103,4 +111,6 @@ A few Monty bytecode files are supplied in the `byecodes` directory. For support
   Usage: `rotr`
 
   What it does: rotates the stack to the right.
-
+### Challenges
+- breaking down the project into smaller manageable pieces, and then breaking them into even smaller pieces so that I could have functions that each only did one thing
+- trying to make main function have fewer lines
