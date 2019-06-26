@@ -1,6 +1,7 @@
 #ifndef HEADER_H
 #define HEADER_H
 
+/* standard libraries */
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -52,12 +53,16 @@ typedef struct mystruct_s
 	char **optoks;
 } mystruct;
 
+/* the one global variable I am allowed to use */
 mystruct var;
 
+/* function that finds which function to call */
 void get_op_func(stack_t **, unsigned int);
-void op_push(stack_t **stack, unsigned int line_number);
+/* functions that print value(s) from stack */
 void op_pall(stack_t **stack, unsigned int line_number);
 void op_pint(stack_t **stack, unsigned int line_number);
+/* functions that manipulate the stack */
+void op_push(stack_t **stack, unsigned int line_number);
 void op_pop(stack_t **stack, unsigned int line_number);
 void op_swap(stack_t **stack, unsigned int line_number);
 void op_add(stack_t **stack, unsigned int line_number);
@@ -70,7 +75,7 @@ void op_pchar(stack_t **stack, unsigned int line_number);
 void op_pstr(stack_t **stack, unsigned int line_number);
 void op_rotl(stack_t **stack, unsigned int line_number);
 void op_rotr(stack_t **stack, unsigned int line_number);
-
+/* other helper functions */
 int isint(char *s);
 char **split_string(char *line, char *delim);
 
