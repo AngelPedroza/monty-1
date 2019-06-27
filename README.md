@@ -27,6 +27,23 @@ $ gcc -Wall -Werror -Wextra -pedantic *.c -o monty
 
 A few Monty bytecode files are supplied in the `byecodes` directory. For supported opcodes, look below.
 
+### Example of usage
+```
+$ cat bytecodes/12.m
+push 1
+push 2
+push 3
+pall
+add
+pall
+$ monty bytecodes/12.m
+3
+2
+1
+5
+1
+```
+
 ### Implemented opcodes
 - **push**
 
