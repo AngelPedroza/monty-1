@@ -138,7 +138,7 @@ $ monty bytecodes/12.m
 ### Challenges
 - breaking down the project into smaller manageable pieces, and then breaking them into even smaller pieces so that I could have functions that each only did one thing
 - trying to make main function have fewer lines
-- memory leaks
+- memory leaks from not freeing dynamically allocated memory
 
 ### Features that I did not implement
 - `stack` and `queue` opcodes that would set the format of the data to a stack (LIFO) or queue (FIFO).
