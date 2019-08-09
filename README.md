@@ -36,7 +36,7 @@ push 3
 pall
 add
 pall
-$ monty bytecodes/12.m
+$ ./monty bytecodes/12.m
 3
 2
 1
