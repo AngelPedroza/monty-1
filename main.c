@@ -23,6 +23,8 @@ int main(int ac, char **av)
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE); }
+	var.s_q = 0;
+	var.tail = NULL;
 	while (getline(&buffer, &buffer_size, stream) != -1)
 	{
 		lineno++;
