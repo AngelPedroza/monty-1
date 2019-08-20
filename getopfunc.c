@@ -23,11 +23,13 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 	{"pstr", op_pstr},
 	{"rotl", op_rotl},
 	{"rotr", op_rotr},
+	{"stack", op_stack},
+	{"queue", op_queue},
 	{NULL, NULL}
 	};
 	int i;
 
-	for (i = 0; i < 15; i++)
+	for (i = 0; i < 17; i++)
 	{
 		if (strcmp(var.optoks[0], ops[i].opcode) == 0)
 		{
