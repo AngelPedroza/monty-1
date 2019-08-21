@@ -54,7 +54,7 @@ typedef struct mystruct_s
 {
 	char **optoks;
 	int s_q;
-	instruction_t *tail;
+	stack_t *tail;
 } mystruct;
 
 /* the one global variable I am allowed to use */
