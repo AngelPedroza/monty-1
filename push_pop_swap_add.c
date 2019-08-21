@@ -21,28 +21,16 @@ void op_push(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	new->n = atoi(var.optoks[1]);
+	new->prev = NULL;
 	temp = *stack;
 	if (temp == NULL)
-	{
-		*stack = new;
-		var.tail = new;
-		new->prev = NULL;
 		new->next = NULL;
-		return;
-	}
-	if (var.s_q == 0)
-	{
-		new->prev = NULL;
-		new->next = temp;
-		temp->prev = new;
-		*stack = new;
-	}
 	else
 	{
-		new->prev = var.tail;
-		new->next = NULL;
-		var.tail = new;
+		new->next = temp;
+		temp->prev = new;
 	}
+	*stack = new;
 }
 
 /**

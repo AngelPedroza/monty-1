@@ -45,16 +45,12 @@ typedef struct instruction_s
 /**
  * struct mystruct_s - storing a variable here
  * @optoks: lines of opcode stored here
- * @s_q: value of 0 means "stack", value of 1 means "queue"
- * @tail: pointer to bottom of stack/end of queue
  * Description: this is where I am storing a variable
  * so that I can use it in multiple functions
  */
 typedef struct mystruct_s
 {
 	char **optoks;
-	int s_q;
-	stack_t *tail;
 } mystruct;
 
 /* the one global variable I am allowed to use */
@@ -84,8 +80,5 @@ void op_nop(stack_t **stack, unsigned int line_number);
 /* other helper functions */
 int isint(char *s);
 char **split_string(char *line, char *delim);
-/* sets data structure as stack or queue */
-void op_stack(stack_t **stack, unsigned int line_number);
-void op_queue(stack_t **stack, unsigned int line_number);
 
 #endif
