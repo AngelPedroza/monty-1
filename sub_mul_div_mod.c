@@ -13,6 +13,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n",
 			line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -20,6 +21,7 @@ void op_sub(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't sub, stack too short\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n -= node1->n;
@@ -41,6 +43,7 @@ void op_mul(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n",
 			line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -48,6 +51,7 @@ void op_mul(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mul, stack too short\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n *= node1->n;
@@ -69,6 +73,7 @@ void op_div(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n",
 			line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -76,11 +81,13 @@ void op_div(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't div, stack too short\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if (node1->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n /= node1->n;
@@ -103,6 +110,7 @@ void op_mod(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mod, stack too short\n",
 			line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -110,11 +118,13 @@ void op_mod(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't mod, stack too short\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if (node1->n == 0)
 	{
 		fprintf(stderr, "L%u: division by zero\n", line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n %= node1->n;

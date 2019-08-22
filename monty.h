@@ -80,5 +80,8 @@ void op_nop(stack_t **stack, unsigned int line_number);
 /* other helper functions */
 int isint(char *s);
 char **split_string(char *line, char *delim);
+/* frees all allocated memory */
+void free_memory(stack_t *stack);
+void free_varoptoks(void);
 
 #endif

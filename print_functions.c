@@ -27,6 +27,7 @@ void op_pint(stack_t **stack, unsigned int line_number)
 	if ((*stack == NULL) || (stack == NULL))
 	{
 		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -57,6 +58,7 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't pchar, stack empty\n",
 			line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	if ((current->n > 32) && (current->n < 127))
@@ -65,6 +67,7 @@ void op_pchar(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't pchar, value out of range\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 }

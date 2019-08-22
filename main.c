@@ -12,7 +12,7 @@ int main(int ac, char **av)
 	char *buffer = NULL, *sp = " \n";
 	size_t buffer_size;
 	FILE *stream;
-	stack_t *head = NULL, *temp;
+	stack_t *head = NULL;
 
 	if (ac != 2)
 	{
@@ -31,20 +31,16 @@ int main(int ac, char **av)
 		{
 			if (var.optoks[0][0] == '#')
 			{
-				free(var.optoks);
+				free_varoptoks();
 				continue; }
 			else
 				get_op_func(&head, lineno);
-			free(var.optoks); }
+			free_varoptoks(); }
 		else
 		{
-			free(var.optoks);
+			free_varoptoks();
 			continue; } }
 	free(buffer);
-	while (head != NULL)
-	{
-		temp = head;
-		head = head->next;
-		free(temp); }
+	free_memory(head);
 	fclose(stream);
 	return (0); }

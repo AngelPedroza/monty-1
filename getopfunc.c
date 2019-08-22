@@ -39,6 +39,7 @@ void get_op_func(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: unknown instruction %s\n",
 			line_number, var.optoks[0]);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 }

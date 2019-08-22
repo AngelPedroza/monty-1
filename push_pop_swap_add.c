@@ -12,12 +12,14 @@ void op_push(stack_t **stack, unsigned int line_number)
 	if (var.optoks[1] == NULL || isint(var.optoks[1]) != 0)
 	{
 		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	new->n = atoi(var.optoks[1]);
@@ -46,6 +48,7 @@ void op_pop(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't pop an empty stack\n",
 			line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	*stack = current->next;
@@ -67,6 +70,7 @@ void op_swap(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -74,6 +78,7 @@ void op_swap(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	if (node2->next == NULL)
@@ -109,6 +114,7 @@ void op_add(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n",
 			line_number);
+		free_varoptoks();
 		exit(EXIT_FAILURE);
 	}
 	node2 = node1->next;
@@ -116,6 +122,7 @@ void op_add(stack_t **stack, unsigned int line_number)
 	{
 		fprintf(stderr, "L%u: can't add, stack too short\n",
 			line_number);
+		free_memory(*stack);
 		exit(EXIT_FAILURE);
 	}
 	node2->n += node1->n;
